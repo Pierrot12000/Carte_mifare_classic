@@ -35,7 +35,12 @@ void MyWindow::on_Connect_clicked()
     status=OpenCOM(&lecteur);
     qDebug()<<"Salut bg"<<status;
     status=Version(&lecteur);
-    ui->Display->setText(lecteur.version);
+    if(status!=MI_OK)
+    {
+        ui->Display->setText("Reader not found");
+    }
+    else
+        ui->Display->setText(lecteur.version);
     ui->Display->update();
 }
 

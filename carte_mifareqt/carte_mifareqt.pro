@@ -27,3 +27,8 @@ unix|win32: LIBS += -L$$PWD/../Librairie+sample/Librairie+sample/LIB/ -lODALID_E
 
 INCLUDEPATH += $$PWD/../Librairie+sample/Librairie+sample/LIB
 DEPENDPATH += $$PWD/../Librairie+sample/Librairie+sample/LIB
+
+unix|win32: LIBS += -L$$PWD/LIB/ -lODALID_Education
+
+INCLUDEPATH += $$PWD/LIB
+DEPENDPATH += $$PWD/LIB
