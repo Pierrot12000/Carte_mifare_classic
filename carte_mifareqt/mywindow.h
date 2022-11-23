@@ -18,7 +18,7 @@ public:
 private slots:
     void on_Connect_clicked();
     void on_Exit_clicked();
-
+    void on_Disconnect_clicked();
 private:
     Ui::MyWindow *ui;
 };

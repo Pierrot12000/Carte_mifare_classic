@@ -40,7 +40,10 @@ void MyWindow::on_Connect_clicked()
         ui->Display->setText("Reader not found");
     }
     else
+    {
         ui->Display->setText(lecteur.version);
+        status = LEDBuzzer(&lecteur, LED_GREEN_ON);
+    }
     ui->Display->update();
 }
 
@@ -51,4 +54,12 @@ void MyWindow::on_Exit_clicked()
     status=LEDBuzzer(&lecteur, LED_OFF);
     status=CloseCOM(&lecteur);
     qApp->quit();
+}
+
+void MyWindow::on_Disconnect_clicked()
+{
+    int16_t status = MI_OK;
+    status=LEDBuzzer(&lecteur, LED_OFF);
+    status=CloseCOM(&lecteur);
+    ui->Display->setText("Succesfully disconnected");
 }
