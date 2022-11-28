@@ -19,6 +19,10 @@ private slots:
     void on_Connect_clicked();
     void on_Exit_clicked();
     void on_Disconnect_clicked();
+    void on_Read_clicked();
+    void on_Set_name_clicked();
+    void on_add_clicked();
+    void on_withdraw_clicked();
 private:
     Ui::MyWindow *ui;
 };
