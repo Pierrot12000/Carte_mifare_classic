@@ -147,16 +147,6 @@
     <string>Set</string>
    </property>
   </widget>
-  <widget class="QTextEdit" name="Money">
-   <property name="geometry">
-    <rect>
-     <x>560</x>
-     <y>370</y>
-     <width>131</width>
-     <height>31</height>
-    </rect>
-   </property>
-  </widget>
   <widget class="Line" name="line">
    <property name="geometry">
     <rect>
@@ -247,11 +237,14 @@
   <widget class="QSpinBox" name="spin_Money">
    <property name="geometry">
     <rect>
-     <x>600</x>
+     <x>590</x>
      <y>440</y>
      <width>71</width>
      <height>31</height>
     </rect>
+   </property>
+   <property name="maximum">
+    <number>1000</number>
    </property>
   </widget>
   <widget class="QPushButton" name="add">
@@ -270,7 +263,7 @@
   <widget class="QPushButton" name="withdraw">
    <property name="geometry">
     <rect>
-     <x>640</x>
+     <x>630</x>
      <y>480</y>
      <width>93</width>
      <height>29</height>
@@ -291,6 +284,16 @@
    </property>
    <property name="orientation">
     <enum>Qt::Horizontal</enum>
+   </property>
+  </widget>
+  <widget class="QLCDNumber" name="Money">
+   <property name="geometry">
+    <rect>
+     <x>580</x>
+     <y>370</y>
+     <width>81</width>
+     <height>31</height>
+    </rect>
    </property>
   </widget>
  </widget>

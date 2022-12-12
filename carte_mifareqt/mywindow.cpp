@@ -86,7 +86,12 @@ void MyWindow::on_Read_clicked()
     status = Mf_Classic_Read_Block(&lecteur, TRUE, 9, data, AuthKeyA, 2);
     ui->Prenom->setText((char*)data);
     status=Mf_Classic_Read_Value(&lecteur, TRUE, 14, &data2, AuthKeyA, 3);
-    ui->Money->setText(QString::number(data2));
+    ui->Money->display(QString::number(data2));
+
+    status=LEDBuzzer(&lecteur, BUZZER_ON);
+    status=LEDBuzzer(&lecteur, LED_RED_ON);
+    DELAYS_MS(50);
+    status=LEDBuzzer(&lecteur, BUZZER_OFF);
 }
 
 void MyWindow::on_Set_name_clicked()
@@ -99,6 +104,11 @@ void MyWindow::on_Set_name_clicked()
     status = Mf_Classic_Write_Block(&lecteur, TRUE, 10, (uint8_t*) nom, AuthKeyB, 2);
     strncpy(prenom, ui->Prenom->toPlainText().toUtf8().data(), 16);
     status = Mf_Classic_Write_Block(&lecteur, TRUE, 9, (uint8_t*) prenom, AuthKeyB, 2);
+
+    status=LEDBuzzer(&lecteur, BUZZER_ON);
+    status=LEDBuzzer(&lecteur, LED_RED_ON);
+    DELAYS_MS(50);
+    status=LEDBuzzer(&lecteur, BUZZER_OFF);
 }
 
 void MyWindow::on_add_clicked()
@@ -108,7 +118,12 @@ void MyWindow::on_add_clicked()
     status=Mf_Classic_Increment_Value(&lecteur, TRUE, 14, ui->spin_Money->value(), 13, AuthKeyB, 3); //on prend la valeur du block 14, on incrémente et on écrit dans le bloc 13
     status=Mf_Classic_Restore_Value(&lecteur, TRUE, 13, 14, AuthKeyA, 3); //on prend la valeur dans le backup pour la mettre dans le compteur
     status=Mf_Classic_Read_Value(&lecteur, TRUE, 14, &data2, AuthKeyA, 3);
-    ui->Money->setText(QString::number(data2));
+    ui->Money->display(QString::number(data2));
+
+    status=LEDBuzzer(&lecteur, BUZZER_ON);
+    status=LEDBuzzer(&lecteur, LED_RED_ON);
+    DELAYS_MS(50);
+    status=LEDBuzzer(&lecteur, BUZZER_OFF);
 }
 
 void MyWindow::on_withdraw_clicked()
@@ -118,5 +133,10 @@ void MyWindow::on_withdraw_clicked()
     status=Mf_Classic_Decrement_Value(&lecteur, TRUE, 14, ui->spin_Money->value(), 13, AuthKeyA, 3);
     status=Mf_Classic_Restore_Value(&lecteur, TRUE, 13, 14, AuthKeyA, 3);
     status=Mf_Classic_Read_Value(&lecteur, TRUE, 14, &data2, AuthKeyA, 3);
-    ui->Money->setText(QString::number(data2));
+    ui->Money->display(QString::number(data2));
+
+    status=LEDBuzzer(&lecteur, BUZZER_ON);
+    status=LEDBuzzer(&lecteur, LED_RED_ON);
+    DELAYS_MS(50);
+    status=LEDBuzzer(&lecteur, BUZZER_OFF);
 }
